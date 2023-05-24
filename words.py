@@ -1,4 +1,6 @@
-words = [
+# obtained from https://www.randomlists.com/
+
+list_of_words = [
 'familiar',
 'mice',
 'amusement',
