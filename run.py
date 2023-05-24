@@ -4,7 +4,7 @@ from words import list_of_words
 
 
 def game_intro():
-      print("""
+     print("""
     
  __ __   ____  ____    ____  ___ ___   ____  ____  
 |  |  | /    ||    \  /    ||   |   | /    ||    \ 
@@ -16,9 +16,10 @@ def game_intro():
                                                    
     """)
 
-
-
-
+     print('Welcome to Phils HangMan!\n')
+     print('What is your name?\n \n')
+     name = input('ENTER YOUR NAME:')
+     print(f"\n Welcome, {name}")
 
 
 def main():
