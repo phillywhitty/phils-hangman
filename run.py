@@ -3,7 +3,7 @@ from words import list_of_words
 
 def get_word():
     word = random.choice(list_of_words)
-    print(word)
+    return word
    
 
 def game_intro():
@@ -22,17 +22,26 @@ def game_intro():
      print('Welcome to Phils HangMan!\n')
      print('What is your name?\n \n')
      name = input('ENTER YOUR NAME:')
-     print(f"\n Welcome, {name}")
+     print(f"\n Welcome, {name} \n")
+     print('Please press Enter to start the game \n')
+
+
+def start_game(word):
+    word_blank = "_" * len(word)
+    print(word_blank)
+
+
 
 
 def main():
     """
     Runs the game functions
     """
+    word = get_word()
     game_intro()
-    get_word()
+    start_game(word)
 
-get_word()
+main()
 
 
 
