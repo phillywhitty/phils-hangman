@@ -27,12 +27,21 @@ def game_intro():
 
 
 def start_game(word):
-    word_blank = "_" * len(word)
-    print(word_blank)
+    word_completion = "_" * len(word)
+    game_over = False
+    guesses = []
+    print("Starting Phils Hangman....")
+    print("\n")
+    print(word_completion)
+    print(f"The word to guess: " + " ".join(list_of_words) + "\n")
+
+    while not game_over:
+      user_attempt = input(" Guess a letter:\n")
+    
 
 
-def display_hangman():
-    stages = [  # final state: head, torso, both arms, and both legs
+def display_hangman(lives):
+    remaining_lives = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
                    |      |
@@ -103,7 +112,7 @@ def display_hangman():
                    -
                 """
     ]
-    return stages
+    return remaining_lives
 
 def main():
     """
