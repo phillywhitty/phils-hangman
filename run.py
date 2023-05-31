@@ -36,7 +36,22 @@ def start_game(word):
     print(f"The word to guess: " + " ".join(list_of_words) + "\n")
 
     while not game_over:
-      user_attempt = input(" Guess a letter:\n")
+      user_attempt = input(" Guess a letter:\n").upper()
+      if len(user_attempt) > 1:
+         raise ValueError(f"You can only guess 1 letter at a time")
+
+      elif not user_attempt.isalpha():
+         raise ValueError(f"You can only guess letters")   
+
+      elif len(user_attempt) == 1 and user_attempt.isalpha():
+         if user_attempt in guesses:
+            raise ValueError(f"You have already guessed {(user_attempt)}")
+
+      elif user_attempt not in word:
+
+         print (f"{(user_attempt)} is not in the word.")
+
+         guesses.append(user_attempt)         
     
 
 
