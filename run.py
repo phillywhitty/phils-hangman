@@ -36,38 +36,42 @@ def start_game(word):
     print(f"The word to guess: " + " ".join(list_of_words) + "\n")
 
     while not game_over:
-      
-         user_attempt = input(" Guess a letter:\n").upper()
-      try:
-         if len(user_attempt) > 1:
-            raise ValueError(f"You can only guess 1 letter at a time")
+        user_attempt = input(" Guess a letter:\n").upper()
+        try:
+            if len(user_attempt) > 1:
+               raise ValueError(f"You can only guess 1 letter at a time")
 
-         elif not user_attempt.isalpha():
-            raise ValueError(f"You can only guess letters")   
+            elif not user_attempt.isalpha():
+               raise ValueError(f"You can only guess letters")   
 
-         elif len(user_attempt) == 1 and user_attempt.isalpha():
-            if user_attempt in guesses:
-            raise ValueError(f"You have already guessed {(user_attempt)}")
+            elif len(user_attempt) == 1 and user_attempt.isalpha():
+               if user_attempt in guesses:
+                  raise ValueError(f"You have already guessed {(user_attempt)}")
 
-         elif user_attempt not in word:
+               elif user_attempt not in word:
 
-            print (f"{(user_attempt)} is not in the word.")
+                  print (f"{(user_attempt)} is not in the word.")
 
-            guesses.append(user_attempt)         
+                  guesses.append(user_attempt)         
     
-      else:
+            else:
 
-         print(f"{(user_attempt)} is in the word. Great Stuff!")
+               print(f"{(user_attempt)} is in the word. Great Stuff!")
 
-         guesses.append(user_attempt)
-         word_completion_list = list(word_completion)
-         indices = [i for i, letter in enumerate(word)
-                    if letter ==user_attempt]
-         for index in indices:
-            word_completion_list[index] = user_attempt
-            word_completion = "".join(word_completion_list)
-         if "_" not in word_completion:
-            game_over = True              
+               guesses.append(user_attempt)
+               word_completion_list = list(word_completion)
+               indices = [i for i, letter in enumerate(word)
+                        if letter == user_attempt]
+               for index in indices:
+                  word_completion_list[index] = user_attempt
+                  word_completion = "".join(word_completion_list)
+               if "_" not in word_completion:
+                  game_over = True 
+
+        except ValueError as e:
+
+         print(f"{e}.\n Please try again.  \n")
+         continue                            
 
 def display_hangman(lives):
     remaining_lives = [  # final state: head, torso, both arms, and both legs
