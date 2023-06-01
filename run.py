@@ -26,16 +26,37 @@ def game_intro():
      print(f"\n Welcome, {name} \n")
 
 
-def start_game(word):
+def start_game():
+
+    print("Press 1 to Start playing Phils-Hangman")
+
+    start = False
+    while not start:
+      choice = input("\n")
+      if choice == "1":
+         start = True
+         num_lives = select_game_level()
+         word = get_random_word()
+         run_game(word, num_lives)
+
+    else:
+      print("Please select 1 to continue")     
+
+
+
+
+
+def run_game(word, num_lives):
     word_completion = "_" * len(word)
     game_over = False
     guesses = []
+    lives = num_lives
     print("Starting Phils Hangman....")
     print("\n")
     
     print(f"The word to guess: " + " ".join(word_completion) + "\n")
 
-    while not game_over:
+    while not game_over and lives > 0:
         user_attempt = input(" Guess a letter:\n").upper()
         try:
             if len(user_attempt) > 1:
@@ -52,7 +73,8 @@ def start_game(word):
 
                   print (f"{(user_attempt)} is not in the word.")
 
-                  guesses.append(user_attempt)         
+                  guesses.append(user_attempt)  
+                  lives -= 1       
     
             else:
 
@@ -71,10 +93,63 @@ def start_game(word):
         except ValueError as e:
 
          print(f"{e}.\n Please try again.  \n")
-         continue                            
+         continue 
 
-def display_hangman(lives):
-    remaining_lives = [  # final state: head, torso, both arms, and both legs
+         print(hangman_lives(lives))
+
+         if lives > 0:
+               print(f"Lives: {lives}\n")
+               print(f"The word to guess: " + " ".join(word_completion) + "\n")
+               print(f"Letters guessed: " + ", ".join(sorted(guesses)) + "\n")
+
+    if game_over:
+       print(f"Congratulations! YOU WON !")
+    else:
+       print(f"The word you had to Guess was {word}")
+
+    restart_game()
+
+def restart_game():
+    
+    game_restart = False
+
+    while not game_restart:
+        restart = input(f"Would You Like To Play Again :) ?"
+                        f"Please Type Y for Yes & N for No: ")
+        try:
+            if restart == "Y":
+                game_restart = True
+                start_game()
+            elif restart == "N":
+                game_restart = True
+                print("\n")
+                main()
+            else:
+                raise ValueError(f"Please type either Y or N,"
+                                 f"to make your Choice.You typed{(restart)}")
+
+        except ValueError as e:
+            print(" Please Try Again")
+  
+
+
+
+def select_game_level():
+
+   level = True
+   while level:
+      num_lives = 7
+      return num_lives
+
+
+
+
+
+
+
+
+def hangman_lives(lives):
+    lives_left = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
                    |      |
@@ -145,15 +220,18 @@ def display_hangman(lives):
                    -
                 """
     ]
-    return remaining_lives
+    return lives_left(lives)
 
 def main():
     """
     Runs the game functions
     """
-    word = get_random_word()
+    
     game_intro()
-    start_game(word)
+    start_game()
+    word = get_random_word()
+    run_game(word, num_lives)
+   
 
 main()
 
