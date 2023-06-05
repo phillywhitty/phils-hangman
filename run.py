@@ -24,6 +24,7 @@ def game_intro():
      print('What is your name?\n \n')
      name = input('ENTER YOUR NAME:')
      print(f"\n Welcome, {name} \n")
+        
 
 
 def start_game():
@@ -47,65 +48,72 @@ def start_game():
 
 
 def run_game(word, num_lives):
-    word_completion = "_" * len(word)
+    """
+    Runs the Hang-Hangman game.
+    Hang-Hangman is based around the YouTube video
+    https://www.youtube.com/watch?v=m4nEnsavl6w
+    """
+    word_to_guess = "_" * len(word)
     game_over = False
     guesses = []
     lives = num_lives
-    print("Starting Phils Hangman....")
     print("\n")
-    
-    print(f"The word to guess: " + " ".join(word_completion) + "\n")
+    print(f"Lives: {lives}\n")
+    print("The word to guess: " + " ".join(word_to_guess) + "\n")
 
     while not game_over and lives > 0:
-        user_attempt = input(" Guess a letter:\n").upper()
+        user_try = input("Guess a letter:\n ").upper()
         try:
-            if len(user_attempt) > 1:
-               raise ValueError(f"You can only guess 1 letter at a time")
+            if len(user_try) > 1:
+                raise ValueError(f""
+                                 f"You can only guess 1 letter at a time. "
+                                 f"You guessed {len(user_try)} letter.")
+            elif not user_try.isalpha():
+                raise ValueError(f""
+                                 f"You can only guess letters."
+                                 f"You guessed {user_try},is not a letter.")
+            elif len(user_try) == 1 and user_try.isalpha():
+                if user_try in guesses:
+                    raise ValueError(f""
+                                     f"You have already guessed {user_try}.")
+                elif user_try not in word:
+                    
+                    print(f""
+                          f"{(user_try)} is not in the word.")
+                    print(f"Sorry You Lose a Life!")
+                    guesses.append(user_try)
+                    lives -= 1
+                else:
+                    
+                    print(f""
+                          f"{user_try} is in the word. Well done!")
 
-            elif not user_attempt.isalpha():
-               raise ValueError(f"You can only guess letters")   
+                    guesses.append(user_try)
+                    word_to_guess_list = list(word_to_guess)
+                    indices = [i for i, letter in enumerate(word)
+                               if letter == user_try]
+                    for index in indices:
+                        word_to_guess_list[index] = user_try
+                        word_to_guess = "".join(word_to_guess_list)
+                    if "_" not in word_to_guess:
+                        game_over = True
 
-            elif len(user_attempt) == 1 and user_attempt.isalpha():
-               if user_attempt in guesses:
-                  raise ValueError(f"You have already guessed {(user_attempt)}")
+        except ValueError as e_values:
+            print(f"{e_values}.\n Please try again. :D\n")
+            continue
 
-               elif user_attempt not in word:
+        print(hangman_lives(lives))
 
-                  print (f"{(user_attempt)} is not in the word.")
-
-                  guesses.append(user_attempt)  
-                  lives -= 1       
-    
-            else:
-
-               print(f"{(user_attempt)} is in the word. Great Stuff!")
-
-               guesses.append(user_attempt)
-               word_completion_list = list(word_completion)
-               indices = [i for i, letter in enumerate(word)
-                        if letter == user_attempt]
-               for index in indices:
-                  word_completion_list[index] = user_attempt
-                  word_completion = "".join(word_completion_list)
-               if "_" not in word_completion:
-                  game_over = True 
-
-        except ValueError as e:
-
-         print(f"{e}.\n Please try again.  \n")
-         continue 
-
-         print(hangman_lives(lives))
-
-         if lives > 0:
-               print(f"Lives: {lives}\n")
-               print(f"The word to guess: " + " ".join(word_completion) + "\n")
-               print(f"Letters guessed: " + ", ".join(sorted(guesses)) + "\n")
+        if lives > 0:
+            print(f"Lives: {lives}\n")
+            print("The word to guess: " + " ".join(word_to_guess) + "\n")
+            print("Letters guessed: " + ", ".join(sorted(guesses)) + "\n")
 
     if game_over:
-       print(f"Congratulations! YOU WON !")
+        print(f"Congratulations! YOU WON !")
     else:
-       print(f"The word you had to Guess was {word}")
+        print(f"Sorry :( You Loose !! "
+              f"The word you had to Guess was {word}")
 
     restart_game()
 
@@ -150,77 +158,77 @@ def select_game_level():
 
 def hangman_lives(lives):
     lives_left = [  # final state: head, torso, both arms, and both legs
-                """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |     / \\
-                   -
-                """,
-                # head, torso, both arms, and one leg
-                """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |     / 
-                   -
-                """,
-                # head, torso, and both arms
-                """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|/
-                   |      |
-                   |      
-                   -
-                """,
-                # head, torso, and one arm
-                """
-                   --------
-                   |      |
-                   |      O
-                   |     \\|
-                   |      |
-                   |     
-                   -
-                """,
-                # head and torso
-                """
-                   --------
-                   |      |
-                   |      O
-                   |      |
-                   |      |
-                   |     
-                   -
-                """,
-                # head
-                """
-                   --------
-                   |      |
-                   |      O
-                   |    
-                   |      
-                   |     
-                   -
-                """,
-                # initial empty state
-                """
-                   --------
-                   |      |
-                   |      
-                   |    
-                   |      
-                   |     
-                   -
-                """
+        """
+           --------
+           |      |
+           |      O
+           |     \\|/
+           |      |
+           |     / \\
+           -
+        """,
+        # head, torso, both arms, and one leg
+        """
+           --------
+           |      |
+           |      O
+           |     \\|/
+           |      |
+           |     / 
+           -
+        """,
+        # head, torso, and both arms
+        """
+           --------
+           |      |
+           |      O
+           |     \\|/
+           |      |
+           |      
+           -
+        """,
+        # head, torso, and one arm
+        """
+           --------
+           |      |
+           |      O
+           |     \\|
+           |      |
+           |     
+           -
+        """,
+        # head and torso
+        """
+           --------
+           |      |
+           |      O
+           |      |
+           |      |
+           |     
+           -
+        """,
+        # head
+        """
+           --------
+           |      |
+           |      O
+           |    
+           |      
+           |     
+           -
+        """,
+        # initial empty state
+        """
+           --------
+           |      |
+           |      
+           |    
+           |      
+           |     
+           -
+        """
     ]
-    return lives_left(lives)
+    return lives_left[min(lives, len(lives_left) - 1)]
 
 def main():
     """
