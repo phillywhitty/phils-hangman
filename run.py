@@ -11,27 +11,35 @@ def get_random_word():
    
 
 def game_intro():
-     print("""
     
- __ __   ____  ____    ____  ___ ___   ____  ____  
-|  |  | /    ||    \  /    ||   |   | /    ||    \ 
-|  |  ||  o  ||  _  ||   __|| _   _ ||  o  ||  _  |
-|  _  ||     ||  |  ||  |  ||  \_/  ||     ||  |  |
-|  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
-|  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
-|__|__||__|__||__|__||___,_||___|___||__|__||__|__|
-                                                   
-    """)
+    """
+    Initial screen that requests and welcomes users
+    """
 
-     print('Welcome to Phils HangMan!\n')
-     print('What is your name?\n \n')
-     name = input('ENTER YOUR NAME:')
-     print(f"\n Welcome, {name} \n")
+    
+    print("""
+        
+    __ __   ____  ____    ____  ___ ___   ____  ____  
+    |  |  | /    ||    \  /    ||   |   | /    ||    \ 
+    |  |  ||  o  ||  _  ||   __|| _   _ ||  o  ||  _  |
+    |  _  ||     ||  |  ||  |  ||  \_/  ||     ||  |  |
+    |  |  ||  _  ||  |  ||  |_ ||   |   ||  _  ||  |  |
+    |  |  ||  |  ||  |  ||     ||   |   ||  |  ||  |  |
+    |__|__||__|__||__|__||___,_||___|___||__|__||__|__|
+                                                    
+        """)
+
+    print('Welcome to Phils HangMan!\n')
+    print('What is your name?\n \n')
+    name = input('ENTER YOUR NAME:')
+    print(f"\n Welcome, {name} \n")
         
 
 
 def start_game():
-
+    """
+    Starts the game off asking the user to hit Enter to proceed
+    """
     print("Press Enter to Start playing Phils-Hangman")
 
     start = False
@@ -39,9 +47,9 @@ def start_game():
       choice = input("\n")
       if choice == "":
          start = True
-         num_lives = select_game_level()
+         number_of_lives = select_game_level()
          word = get_random_word()
-         run_game(word, num_lives)
+         run_game(word, number_of_lives)
 
     else:
       print("Please enter to continue")     
@@ -50,48 +58,48 @@ def start_game():
 
 
 
-def run_game(word, num_lives):
+def run_game(word, number_of_lives):
    
 
     word_to_guess = "_" * len(word)
     game_over = False
     guesses = []
-    lives = num_lives
+    lives = number_of_lives
     print("\n")
     print(f"Lives: {lives}\n")
     print("The word to guess: " + " ".join(word_to_guess) + "\n")
 
     while not game_over and lives > 0:
-        user_try = input("Guess a letter:\n ").upper()
+        user_attempt = input("Guess a letter:\n ").upper()
         try:
-            if len(user_try) > 1:
+            if len(user_attempt) > 1:
                 raise ValueError(f"You can only guess 1 letter at a time. "
-                                 f"You guessed {len(user_try)} letter.")
-            elif not user_try.isalpha():
+                                 f"You guessed {len(user_attempt)} letter.")
+            elif not user_attempt.isalpha():
                 raise ValueError(f"You can only guess letters."
-                                 f"You guessed {user_try},is not a letter.")
-            elif len(user_try) == 1 and user_try.isalpha():
-                if user_try in guesses:
+                                 f"You guessed {user_attempt},is not a letter.")
+            elif len(user_attempt) == 1 and user_attempt.isalpha():
+                if user_attempt in guesses:
                     raise ValueError(f""
-                                     f"You have already guessed {user_try}.")
-                elif user_try not in word:
+                                     f"You have already guessed {user_attempt}.")
+                elif user_attempt not in word:
                     
                     print(f""
-                          f"{(user_try)} is not in the word.")
+                          f"{(user_attempt)} is not in the word.")
                     print(f"You Lose a Life!")
-                    guesses.append(user_try)
+                    guesses.append(user_attempt)
                     lives -= 1
                 else:
                     
                     print(f""
-                          f"{user_try} is in the word. Great Stuff!")
+                          f"{user_attempt} is in the word. Great Stuff!")
 
-                    guesses.append(user_try)
+                    guesses.append(user_attempt)
                     word_to_guess_list = list(word_to_guess)
                     indices = [i for i, letter in enumerate(word)
-                               if letter == user_try]
+                               if letter == user_attempt]
                     for index in indices:
-                        word_to_guess_list[index] = user_try
+                        word_to_guess_list[index] = user_attempt
                         word_to_guess = "".join(word_to_guess_list)
                     if "_" not in word_to_guess:
                         game_over = True
@@ -120,9 +128,10 @@ def restart_game():
     game_restart = False
 
     while not game_restart:
-        restart = input(f"Would You Like To Play Again :) ?"
-                        f"Please Type Y for Yes & N for No: ")
+        restart = input("Would You Like To Play Again :) ?"
+                        "Please Type Y for Yes & N for No: ")
         try:
+            restart = restart.upper()  
             if restart == "Y":
                 game_restart = True
                 start_game()
@@ -131,8 +140,8 @@ def restart_game():
                 print("\n")
                 main()
             else:
-                raise ValueError(f"Please type either Y or N,"
-                                 f"to make your Choice.You typed{(restart)}")
+                raise ValueError("Please type either Y or N to make your choice. "
+                                 f"You typed: {restart}")
 
         except ValueError as e:
             print(" Please Try Again")
@@ -144,8 +153,8 @@ def select_game_level():
 
    level = True
    while level:
-      num_lives = 7
-      return num_lives
+      number_of_lives = 7
+      return number_of_lives
 
 
 
@@ -236,7 +245,7 @@ def main():
     game_intro()
     start_game()
     word = get_random_word()
-    run_game(word, num_lives)
+    run_game(word, number_of_lives)
    
 
 main()

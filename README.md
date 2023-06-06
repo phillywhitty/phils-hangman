@@ -170,6 +170,17 @@ Canva was used in the development stages of this project. I used a simple flow c
 
 ---
 
+## Bugs
+
+ Bug Explanation:
+ Previously, there was a bug in the code where it only accepted capital letters for the restart input.
+ This meant that lowercase "y" and "n" would not trigger the desired behavior.
+
+ Fix Explanation:
+ To fix this bug, I modified the code to convert the restart input to uppercase using the `.upper()` method.
+ This change allows for case-insensitive comparisons against "Y" and "N".
+ Now, regardless of whether the user enters lowercase or uppercase "Y" or "N", the code will function correctly.
+
 ## Deployment
 
 ### Heroku
