@@ -68,7 +68,7 @@ def run_game(word, number_of_lives):
     guesses = []
     lives = number_of_lives
     print("\n")
-    print(f"Lives: {lives}\n")
+    print(f"Remaining Lives: {lives}\n")
     print("The word to guess: " + " ".join(word_to_guess) + "\n")
 
     while not game_over and lives > 0:
@@ -76,10 +76,10 @@ def run_game(word, number_of_lives):
         try:
             if len(user_attempt) > 1:
                 raise ValueError(f"You can only guess 1 letter at a time. "
-                                 f"You guessed {len(user_attempt)} letter.")
+                                 f"You guessed {len(user_attempt)} letters.")
             elif not user_attempt.isalpha():
                 raise ValueError(f"You can only guess letters."
-                                 f"You guessed {user_attempt},is not a letter.")
+                                 f"You guessed {user_attempt},which is not a letter.")
             elif len(user_attempt) == 1 and user_attempt.isalpha():
                 if user_attempt in guesses:
                     raise ValueError(f""
@@ -118,9 +118,9 @@ def run_game(word, number_of_lives):
             print("Letters guessed: " + ", ".join(sorted(guesses)) + "\n")
 
     if game_over:
-        print(f"You won !")
+        print(f"You Won !")
     else:
-        print(f"You Loose !! "
+        print(f"You Lost !! "
               f"The word you had to Guess was {word}")
 
     restart_game()
@@ -133,7 +133,7 @@ def restart_game():
     game_restart = False
 
     while not game_restart:
-        restart = input("Would You Like To Play Again :) ?"
+        restart = input("Do You Want To Play Again :) ?"
                         "Please Type Y for Yes & N for No: ")
         try:
             restart = restart.upper()  
@@ -142,14 +142,14 @@ def restart_game():
                 start_game()
             elif restart == "N":
                 game_restart = True
-                print("\n")
+                print("\nReturning to Game-Intro...\n")
                 main()
             else:
-                raise ValueError("Please type either Y or N to make your choice. "
+                raise ValueError("Invalid input. Please type either 'Y' or 'N' to make your choice. "
                                  f"You typed: {restart}")
 
         except ValueError as e:
-            print(" Please Try Again")
+            print("Try Again")
   
 
 
