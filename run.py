@@ -2,8 +2,11 @@ import random
 
 
 def get_random_word():
-    
-    random_word = random.choice(open("words.py", "r").read().split('\n'))
+    # Open the file "words.py" and read all the words into a list
+    word_list = open("words.py", "r").read().split('\n')
+    # Choose a random word from the list
+    random_word = random.choice(word_list)
+    # Convert the word to uppercase and return it
     return random_word.upper()
    
 
@@ -29,30 +32,27 @@ def game_intro():
 
 def start_game():
 
-    print("Press 1 to Start playing Phils-Hangman")
+    print("Press Enter to Start playing Phils-Hangman")
 
     start = False
     while not start:
       choice = input("\n")
-      if choice == "1":
+      if choice == "":
          start = True
          num_lives = select_game_level()
          word = get_random_word()
          run_game(word, num_lives)
 
     else:
-      print("Please select 1 to continue")     
+      print("Please enter to continue")     
 
 
 
 
 
 def run_game(word, num_lives):
-    """
-    Runs the Hang-Hangman game.
-    Hang-Hangman is based around the YouTube video
-    https://www.youtube.com/watch?v=m4nEnsavl6w
-    """
+   
+
     word_to_guess = "_" * len(word)
     game_over = False
     guesses = []
@@ -65,12 +65,10 @@ def run_game(word, num_lives):
         user_try = input("Guess a letter:\n ").upper()
         try:
             if len(user_try) > 1:
-                raise ValueError(f""
-                                 f"You can only guess 1 letter at a time. "
+                raise ValueError(f"You can only guess 1 letter at a time. "
                                  f"You guessed {len(user_try)} letter.")
             elif not user_try.isalpha():
-                raise ValueError(f""
-                                 f"You can only guess letters."
+                raise ValueError(f"You can only guess letters."
                                  f"You guessed {user_try},is not a letter.")
             elif len(user_try) == 1 and user_try.isalpha():
                 if user_try in guesses:
@@ -80,13 +78,13 @@ def run_game(word, num_lives):
                     
                     print(f""
                           f"{(user_try)} is not in the word.")
-                    print(f"Sorry You Lose a Life!")
+                    print(f"You Lose a Life!")
                     guesses.append(user_try)
                     lives -= 1
                 else:
                     
                     print(f""
-                          f"{user_try} is in the word. Well done!")
+                          f"{user_try} is in the word. Great Stuff!")
 
                     guesses.append(user_try)
                     word_to_guess_list = list(word_to_guess)
@@ -110,9 +108,9 @@ def run_game(word, num_lives):
             print("Letters guessed: " + ", ".join(sorted(guesses)) + "\n")
 
     if game_over:
-        print(f"Congratulations! YOU WON !")
+        print(f"You won !")
     else:
-        print(f"Sorry :( You Loose !! "
+        print(f"You Loose !! "
               f"The word you had to Guess was {word}")
 
     restart_game()
