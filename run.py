@@ -47,7 +47,7 @@ def start_game():
       choice = input("\n")
       if choice == "":
          start = True
-         number_of_lives = select_game_level()
+         number_of_lives = game_level()
          word = get_random_word()
          run_game(word, number_of_lives)
 
@@ -59,7 +59,9 @@ def start_game():
 
 
 def run_game(word, number_of_lives):
-   
+    """
+    This function will run Phils-Hangman game.
+    """
 
     word_to_guess = "_" * len(word)
     game_over = False
@@ -124,6 +126,9 @@ def run_game(word, number_of_lives):
     restart_game()
 
 def restart_game():
+    """
+    This will give user the choice to restart Phils-Hangman or return to Game-Intro
+    """
     
     game_restart = False
 
@@ -149,16 +154,14 @@ def restart_game():
 
 
 
-def select_game_level():
-
-   level = True
-   while level:
-      number_of_lives = 7
-      return number_of_lives
-
-
-
-
+def game_level():
+    """
+    Sets game level/number of lives to 7
+    """
+    level = True
+    while level:
+       number_of_lives = 7
+       return number_of_lives
 
 
 
