@@ -1,5 +1,5 @@
 import random
-
+import os 
 
 def get_random_word():
     # Open the file "words.py" and read all the words into a list
@@ -9,6 +9,12 @@ def get_random_word():
     # Convert the word to uppercase and return it
     return random_word.upper()
    
+
+def clear_screen():
+   
+    os.system("clear")
+
+
 
 def game_intro():
     
@@ -59,13 +65,14 @@ def start_game():
       choice = input("\n")
       if choice == "":
          start = True
+         clear_screen()
          number_of_lives = game_level()
          word = get_random_word()
          run_game(word, number_of_lives)
 
     else:
       print("Please enter to continue")     
-
+    clear_screen()
 
 
 
@@ -97,16 +104,14 @@ def run_game(word, number_of_lives):
                     raise ValueError(f""
                                      f"You have already guessed {user_attempt}.")
                 elif user_attempt not in word:
-                    
-                    print(f""
-                          f"{(user_attempt)} is not in the word.")
+                    clear_screen()
+                    print(f"{(user_attempt)} is not in the word.")
                     print(f"You Lose a Life!")
                     guesses.append(user_attempt)
                     lives -= 1
                 else:
-                    
-                    print(f""
-                          f"{user_attempt} is in the word. Great Stuff!")
+                    clear_screen()
+                    print(f"{user_attempt} is in the word. Great Stuff!")
 
                     guesses.append(user_attempt)
                     word_to_guess_list = list(word_to_guess)
@@ -172,6 +177,7 @@ def game_level():
     """
     level = True
     while level:
+       clear_screen()
        number_of_lives = 7
        return number_of_lives
 
@@ -251,6 +257,9 @@ def hangman_lives(lives):
         """
     ]
     return lives_left[min(lives, len(lives_left) - 1)]
+
+
+
 
 def main():
     """
