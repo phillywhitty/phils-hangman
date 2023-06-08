@@ -46,23 +46,19 @@ The welcome section is the screen the end user is presented with on page load. I
 
 <div align="center"><img src="/assets/images/welcome_screen_readme.png" alt="hangman welcome screen"></div>
 
-### Instructions
+### Enter User Name
 
-If the user enters 'i' the game instructions will be showed to the user.
+An input for the user to enter their name which is then validated using the enter button
 
-<div><img src="" alt=""></div>
+<div><img src="/assets/images/enter_your_name.png" alt="enter your username"></div>
 
 ### Play
 
-If the user enters 'p' the game will print a message "Starting the battle..." the user will then have to input their "username"
+When the user presses 'enter' the game will then start
 
-<div><img src="" alt=""></div>
+<div><img src="/assets/images/game_start.png" alt="game start"></div>
 
-### Enter Username
 
-Once the user enters their username, they will recieve a welcome message to the game and their username will be now shown.
-
-<div><img src="" alt=""></div>
 
 ### Random Board Generator
 
