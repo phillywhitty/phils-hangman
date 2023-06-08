@@ -1,13 +1,13 @@
 # Phils Hangman
 
 ## **Overview**
-Hangman is a Python game which runs in the Code Institute terminal on Heroku. 
-It was a well played game in my school days with my friends so it was great to create a computerized version.
-More information about the rules and history of the game can be found here [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
+Phils Hangman Python game has been developed to run within the Code Institute terminal on Heroku. 
+This computerized rendition of the game holds nostalgic value as it recreates the enjoyable experience shared with friends during my school days.
+For additional details on the game's rules and historical background, please refer to the provided link. [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
 
 <div align="center"><img src="/assets/images/phils_hangman_cover.png" alt="hangman welcome screen"></div>
 
-e [Click here for the final deployed project](https://phils-hangman.herokuapp.com/).
+[Click here for the final deployed project](https://phils-hangman.herokuapp.com/)
 
 
 ## **Table of Contents**
@@ -20,42 +20,53 @@ e [Click here for the final deployed project](https://phils-hangman.herokuapp.co
 # **Planning Phase:**
 ## ***User Stories:***
 As a user, I want to be able to:
-* From the offset see clearly what the game is.
-* Bring back memeories of playing this game in the school days
-* Play an computirized version of hangman by myself.
+* Provide a clear and visually engaging interface that immediately communicates the essence of the game right from the beginning.
+* Evoke nostalgia by recreating the experience of playing this game during school days, bringing back fond memories.
+* Enable users to play a computerized version of hangman independently, allowing them to enjoy the game at their own pace and convenience.
 
 ## ***Site Aims:***
 The site aims to:
-1. Make it clear what the game is without the need for further explanation from external sources.
-1. Communicate a clear and appropriate response to all user inputs.
-1. Continue in a loop without ever crashing due to an error caused by the user's input.
-1. Allow the user to have an enjoyable experience playing hangman by themselves.
+1.Present a user-friendly interface that clearly conveys the nature of the game, eliminating the need for additional explanations from external sources.
+1. Ensure prompt and suitable responses to all user inputs, fostering effective communication throughout the game.
+1. Implement robust error handling mechanisms to prevent the program from crashing as a result of any erroneous user input.
+1. Facilitate an enjoyable solo gaming experience for users, allowing them to fully immerse themselves in the hangman game loop without any hindrances
   
 ## ***How Will This Be Achieved:***
-To achieve the above, the site will:
-1. Provide a welcome screen with the game name in ascii art.
-1. Ensure that all user input provides an appropriate response.
-1. Any time the user input is not as expected by the game, the app will show a message to inform the user that their entry was invalid and guide them on how to input as expected.
-1. Executing all of the above in a way that successfully replicates the original game of hangman.
+
+To accomplish the objectives outlined above, the website will incorporate the following features:
+1. Present a visually appealing welcome screen featuring the game name rendered in ASCII art.
+1. Implement robust user input handling to ensure that appropriate responses are provided for all user interactions.
+1. Whenever the user's input deviates from the expected format, display an error message that informs them of their invalid entry and provides guidance on how to input the expected format.
+1. Successfully replicate the original game of hangman by incorporating all of the above elements seamlessly.
+
+## ***Game Flow Chart:***
+To understand the steps required in order to program the game, I created the below flowchart using [Canva](https://www.lucidchart.com/).  
+
+<div align="center"><img src="/assets/images/hangman_flowchart.png" alt="hangman flow chart"></div>
 
 
 ## Features
 
 ### Welcome Screen
-The welcome section is the screen the end user is presented with on page load. It provides the user with an introduction, along with an input to enter the users name. This is validated before continuing.
+
+The welcome section serves as the initial screen presented to the end user upon loading the page.
+It offers an introduction and includes an input field where the user can enter their name. 
+Prior to proceeding, the inputted name is validated to ensure its accuracy and completeness.
 
 <div align="center"><img src="/assets/images/welcome_screen_readme.png" alt="hangman welcome screen screenshot"></div>
 
 ### Enter User Name
 
-An input for the user to enter their name which is then validated using the enter button
+The user is provided with an input field where they can enter their name. 
+To validate the input, the user can press the enter button
 
 <div><img src="/assets/images/enter_your_name.png" alt="enter your username screenshot"></div>
 
 ### Play
 
-When the user presses 'enter' the game will then start in which their lives and the word to guess will be shown.
-The user is then able to input one letter at a time to make guesses.
+
+When a player successfully guesses the word within seven lives, they will be presented with an encouraging statement that says "Great Stuff!" 
+Additionally, the user will be given the opportunity to decide whether they would like to play again.
 
 <div><img src="/assets/images/game_start.png" alt="game start screenshot"></div>
 
@@ -69,46 +80,35 @@ The user will be also asked if they wish to play again
 <div><img src="/assets/images/you_won.png" alt="you won screenshot"></div>
 
 ### Player Loses
-When a player loses they will be notified they ran out of lives and the word to guess will be then shown.
-The user will be also asked if they want another crack at the game !
+After a player loses, they will be informed that they have run out of lives, and the word to guess will be displayed.
+Additionally, the user will be prompted to decide whether they would like to attempt the game again.
 
 
 <div><img src="/assets/images/you_lost.png" alt="you lost screenshot"></div>
 
 
+## **Future-Enhancements**
+Despite having grand aspirations for further enhancing this game, I faced the common reality of project deadlines. 
+Regrettably, I had to prioritize and make compromises.
+However, here are some noteworthy features that could have elevated my current project to new heights.
 
-### Score Count
-
-Score count will keep track and displays the scores
-
-<div><img src="" alt=""></div>
-
-### Number of Turns
-
-Number of turns keep track of the current amount of turns
-
-<div><img src="" alt=""></div>
-
-### Play Again
-
--   When the player or the computer has destroyed all the opponents ship the game will finish.
-
-<div><img src="" alt=""></div>
-
-### Goodbye
-
--   If the player decides against playing again, they will get a goodbye message.
-<div><img src="" alt=""></div>
-
-[Back to top](#table-of-contents)
-
----
-
-## Future Features
-
--   In the future, I would like to add more features such as;
-
----
+### ***Diffuculty Levels:***
+  * I had plans to implement an enhanced gaming experience with customizable difficulty levels. 
+    Players would have been able to select their preferred level of challenge at the beginning of the game, with options for easy, medium, and hard modes. 
+    This would have allowed for a more tailored and engaging experience, accommodating players of different skill levels
+  * Furthermore, expanding the word library would have provided a greater variety of words to match each difficulty level, enriching the gameplay and ensuring a satisfying experience for players. 
+    Unfortunately, due to project constraints, these features couldn't be incorporated into the current version.
+  
+### ***Improved Visuals:***
+   * To elevate the visual appeal of the game, I had plans to introduce colorful elements within the console using the external Colorama library. 
+     This would have allowed for the integration of vibrant colors to enhance the user interface and make the gameplay more visually engaging.
+   * Additionally, one of my aspirations for this project was to incorporate HTML and CSS to create an immersive background. 
+     This would have involved leveraging web technologies to introduce captivating visuals, animations, and styling to the game.
+  
+### ***Audio:***   
+   * I had envisioned the inclusion of sound effects to accompany key moments in the game. 
+     Specifically, I planned to incorporate sound effects to signify when a player wins or loses the game
+   
 
 ## Design
 
@@ -116,13 +116,7 @@ Number of turns keep track of the current amount of turns
 
 ## Data Model
 
-Canva was used in the development stages of this project. I used a simple flow chart to help me structure what functions I would be using and the main layout
 
-<div><img src="./assets/images/hangman_flowchart.png" alt="flow-chart"></div>
-
-[Back to top](#table-of-contents)
-
----
 
 ## Testing
 
