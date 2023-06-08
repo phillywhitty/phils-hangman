@@ -1,7 +1,7 @@
 # Phils Hangman
 
 ## **Overview**
-Hangman is a Python terminal game which runs in the Code Institute terminal on Heroku. 
+Hangman is a Python game which runs in the Code Institute terminal on Heroku. 
 It was a well played game in my school days with my friends so it was great to create a computerized version.
 More information about the rules and history of the game can be found here [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
 
@@ -44,39 +44,38 @@ To achieve the above, the site will:
 ### Welcome Screen
 The welcome section is the screen the end user is presented with on page load. It provides the user with an introduction, along with an input to enter the users name. This is validated before continuing.
 
-<div align="center"><img src="/assets/images/welcome_screen_readme.png" alt="hangman welcome screen"></div>
+<div align="center"><img src="/assets/images/welcome_screen_readme.png" alt="hangman welcome screen screenshot"></div>
 
 ### Enter User Name
 
 An input for the user to enter their name which is then validated using the enter button
 
-<div><img src="/assets/images/enter_your_name.png" alt="enter your username"></div>
+<div><img src="/assets/images/enter_your_name.png" alt="enter your username screenshot"></div>
 
 ### Play
 
-When the user presses 'enter' the game will then start
+When the user presses 'enter' the game will then start in which their lives and the word to guess will be shown.
+The user is then able to input one letter at a time to make guesses.
 
-<div><img src="/assets/images/game_start.png" alt="game start"></div>
+<div><img src="/assets/images/game_start.png" alt="game start screenshot"></div>
 
 
 
-### Random Board Generator
+### Player Wins
 
-<div><img src="" alt=""></div>
+When a player guesses the word without losing more than 7 lives they will be propmted with a statement to say Great Stuff !
+The user will be also asked if they wish to play again
 
-### Player Feedback
+<div><img src="/assets/images/you_won.png" alt="you won screenshot"></div>
 
-Entering co-ordinate
+### Player Loses
+When a player loses they will be notified they ran out of lives and the word to guess will be then shown.
+The user will be also asked if they want another crack at the game !
 
-<div><img src="" alt=""></div>
 
-Entering 2nd co-ordinate
+<div><img src="/assets/images/you_lost.png" alt="you lost screenshot"></div>
 
-<div><img src="" alt=""></div>
 
-If player enters the same co-ordinates already guessed before
-
-<div><img src="" alt=""></div>
 
 ### Score Count
 
