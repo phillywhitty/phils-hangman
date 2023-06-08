@@ -1,4 +1,4 @@
-# Phils Hangman
+# **Phils Hangman**
 
 ## **Overview**
 Phils Hangman Python game has been developed to run within the Code Institute terminal on Heroku. 
@@ -11,7 +11,7 @@ For additional details on the game's rules and historical background, please ref
 
 
 ## **Table of Contents**
-* [**Phils Hangman**](#Phils Hangman)
+* [**Phils Hangman**](#phils-hangman)
   * [**Overview**](#overview)
   * [**Table of Contents**](#table-of-contents)    
 * [**Planning Phase:**](#planning-phase)
@@ -26,7 +26,7 @@ For additional details on the game's rules and historical background, please ref
     * [**Player Wins:**](#player-wins)
     * [**Player Loses:**](#player-loses)
 * [**Future Features**](#future-features)
-    * [***Diffuculty Levels:***](#diffculty-levels)
+    * [***Diffuculty Levels:***](#difficulty-levels)
     * [***Improved Visuals:***](#improved-visuals)
     * [***Audio:***](#audio)
 * [**Testing Phase**](#testing-phase)
@@ -88,7 +88,6 @@ To validate the input, the user can press the enter button
 
 ## **Play:**
 
-
 When a player successfully guesses the word within seven lives, they will be presented with an encouraging statement that says "Great Stuff!" 
 Additionally, the user will be given the opportunity to decide whether they would like to play again.
 
@@ -147,12 +146,12 @@ For this project to work, I required two imported libraries: -
 
 -   Pass Python script through [CI Python Linter](https://pep8ci.herokuapp.com/)
 -   No errors found on run script file
-<div><img src="/assets/images/ci_python_linter" alt="ci python linter testing screenshot"></div>
+<div><img src="/assets/images/ci_python_linter.png" alt="ci python linter testing screenshot"></div>
 
 # **General Testing**
 
 -   I also ran googles lighthouse testing
-<div><img src="/assets/images/lighthouse_testing" alt="lighthouse testing screenshot"></div>
+<div><img src="/assets/images/lighthouse_testing.png" alt="lighthouse testing screenshot"></div>
 
 # **Bugs**
 
@@ -189,8 +188,8 @@ The app was deployed via Heroku and the live link can be found here [Phils Hangm
 -   W3 Schools - [W3 Schools](https://www.w3schools.com/)
 -   README.md for the template - https://github.com/Code-Institute-Solutions/readme-template
 -   Rory Patrick Sheridan README.md to help with structure content in my README.md - https://github.com/Ri-Dearg/horizon-photo/blob/master/README.md#page-elements
--   Rory Patrick Sheridan for his support throughout my mentor sessions.
--   Slack community
+-   I am immensely grateful to Rory Patrick Sheridan for his unwavering support and guidance during my mentor sessions
+-   The Slack community has been invaluable for accessing student resources and finding answers to my questions.
 -   Code Institute Tutors.
 -   A YouTube video tutorial serves as the foundation for developing my game, providing valuable guidance and instructions. https://www.youtube.com/watch?v=m4nEnsavl6w
 
