@@ -87,7 +87,7 @@ Additionally, the user will be prompted to decide whether they would like to att
 <div><img src="/assets/images/you_lost.png" alt="you lost screenshot"></div>
 
 
-## **Future-Enhancements**
+## **Future-Features**
 Despite having grand aspirations for further enhancing this game, I faced the common reality of project deadlines. 
 Regrettably, I had to prioritize and make compromises.
 However, here are some noteworthy features that could have elevated my current project to new heights.
@@ -110,15 +110,14 @@ However, here are some noteworthy features that could have elevated my current p
      Specifically, I planned to incorporate sound effects to signify when a player wins or loses the game
    
 
-## Design
+# **Testing Phase**
 
----
-
-## Data Model
-
-
-
-## Testing
+# **Libraries**
+For this project to work, I required two imported libraries: -
+### ***random:***
+  * randint used to generate a random number between 0 and 9 for the automated placement and computer guessing
+### ***os:***
+  * system used in conjunction with the clear/cls command to clear the console so the user would not get overwhelmed in reams of outdated data from previous rounds
 
 ## Validation
 

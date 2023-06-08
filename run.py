@@ -1,5 +1,6 @@
 import random
-import os 
+import os
+
 
 def get_random_word():
     # Open the file "words.py" and read all the words into a list
@@ -8,50 +9,38 @@ def get_random_word():
     random_word = random.choice(word_list)
     # Convert the word to uppercase and return it
     return random_word.upper()
-   
+
 
 def clear_screen():
-   
     os.system("clear")
 
 
-
 def game_intro():
-    
     """
     Initial screen that requests and welcomes users
     """
-
-    
     print("""
-        
-    
 
-            ██████╗ ██╗  ██╗██╗██╗     ███████╗                 
-            ██╔══██╗██║  ██║██║██║     ██╔════╝                 
-            ██████╔╝███████║██║██║     ███████╗                 
-            ██╔═══╝ ██╔══██║██║██║     ╚════██║                 
-            ██║     ██║  ██║██║███████╗███████║                 
-            ╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝                 
-                                                                
-██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
-██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║
-███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║
-██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
-██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
-                                                                
 
-                                                                                                       
+            ██████╗ ██╗  ██╗██╗██╗     ███████
+            ██╔══██╗██║  ██║██║██║     ██╔════
+            ██████╔╝███████║██║██║     ███████
+            ██╔═══╝ ██╔══██║██║██║     ╚════██
+            ██║     ██║  ██║██║███████╗███████
+            ╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚══════
 
-                                                    
-        """)
+██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██
+██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██
+███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██
+██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██
+██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══
+         """)
 
     print('Welcome to PHILS HANGMAN!\n')
     print('What is your name?\n \n')
     name = input('ENTER YOUR NAME:')
     print(f"\n Welcome, {name} \n")
-    clear_screen()    
 
 
 def start_game():
@@ -62,19 +51,16 @@ def start_game():
 
     start = False
     while not start:
-      choice = input("\n")
-      if choice == "":
-         start = True
-         clear_screen()
-         number_of_lives = game_level()
-         word = get_random_word()
-         run_game(word, number_of_lives)
-
-    else:
-      print("Please enter to continue")     
+        choice = input("\n")
+        if choice == "":
+            start = True
+            clear_screen()
+            number_of_lives = game_level()
+            word = get_random_word()
+            run_game(word, number_of_lives)
+        else:
+            print("Please enter to continue")
     clear_screen()
-
-
 
 
 def run_game(word, number_of_lives):
@@ -98,11 +84,11 @@ def run_game(word, number_of_lives):
                                  f"You guessed {len(user_attempt)} letters.")
             elif not user_attempt.isalpha():
                 raise ValueError(f"You can only guess letters."
-                                 f"You guessed {user_attempt},which is not a letter.")
+                                 f"You guessed {user_attempt}.")
             elif len(user_attempt) == 1 and user_attempt.isalpha():
                 if user_attempt in guesses:
                     raise ValueError(f""
-                                     f"You have already guessed {user_attempt}.")
+                                     f"You already guessed {user_attempt}.")
                 elif user_attempt not in word:
                     clear_screen()
                     print(f"{(user_attempt)} is not in the word.")
@@ -142,18 +128,20 @@ def run_game(word, number_of_lives):
 
     restart_game()
 
+
 def restart_game():
     """
-    This will give user the choice to restart Phils-Hangman or return to Game-Intro
+    This will give user the choice to
+    restart Phils-Hangman or return to Game-Intro
     """
-    
+
     game_restart = False
 
     while not game_restart:
         restart = input("Do You Want To Play Again :) ?"
                         "Please Type Y for Yes & N for No: ")
         try:
-            restart = restart.upper()  
+            restart = restart.upper()
             if restart == "Y":
                 game_restart = True
                 start_game()
@@ -162,13 +150,12 @@ def restart_game():
                 print("\nReturning to Game-Intro...\n")
                 main()
             else:
-                raise ValueError("Invalid input. Please type either 'Y' or 'N' to make your choice. "
+                raise ValueError("Invalid input. Please type either"
+                                 "'Y' or 'N' to make your choice."
                                  f"You typed: {restart}")
 
         except ValueError as e:
             print("Try Again")
-  
-
 
 
 def game_level():
@@ -177,11 +164,9 @@ def game_level():
     """
     level = True
     while level:
-       clear_screen()
-       number_of_lives = 7
-       return number_of_lives
-
-
+        clear_screen()
+        number_of_lives = 7
+        return number_of_lives
 
 
 def hangman_lives(lives):
@@ -202,7 +187,7 @@ def hangman_lives(lives):
            |      O
            |     \\|/
            |      |
-           |     / 
+           |     /
            -
         """,
         # head, torso, and both arms
@@ -212,7 +197,7 @@ def hangman_lives(lives):
            |      O
            |     \\|/
            |      |
-           |      
+           |
            -
         """,
         # head, torso, and one arm
@@ -222,7 +207,7 @@ def hangman_lives(lives):
            |      O
            |     \\|
            |      |
-           |     
+           |
            -
         """,
         # head and torso
@@ -232,7 +217,7 @@ def hangman_lives(lives):
            |      O
            |      |
            |      |
-           |     
+           |
            -
         """,
         # head
@@ -240,40 +225,35 @@ def hangman_lives(lives):
            --------
            |      |
            |      O
-           |    
-           |      
-           |     
+           |
+           |
+           |
            -
         """,
         # initial empty state
         """
            --------
            |      |
-           |      
-           |    
-           |      
-           |     
+           |
+           |
+           |
+           |
            -
         """
     ]
     return lives_left[min(lives, len(lives_left) - 1)]
 
 
-
-
 def main():
     """
     Runs the game functions
     """
-    
+
     game_intro()
     start_game()
     word = get_random_word()
     run_game(word, number_of_lives)
-   
+
 
 main()
-
-
-
 
