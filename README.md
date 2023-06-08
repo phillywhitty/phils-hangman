@@ -1,10 +1,10 @@
 # Phils Hangman
 
-Describe the game here [Wikipedia](<https://en.wikipedia.org/wiki/Battleship_(game)>)
+Hangman is a Python terminal game which runs in the Code Institute terminal on Heroku. [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
 
 <div align="center"><img src="/assets/images/phils_hangman_cover.png" alt="hangman welcome screen"></div>
 
-Click on the deployed link here [Phils Hangman](https:).
+Click on the deployed link here [Phils Hangman](https://phils-hangman.herokuapp.com/).
 
 ## Table of Contents
 
