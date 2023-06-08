@@ -1,75 +1,50 @@
 # Phils Hangman
 
-Hangman is a Python terminal game which runs in the Code Institute terminal on Heroku. [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
+## **Overview**
+Hangman is a Python terminal game which runs in the Code Institute terminal on Heroku. 
+It was a well played game in my school days with my friends so it was great to create a computerized version.
+More information about the rules and history of the game can be found here [Wikipedia](https://en.wikipedia.org/wiki/Hangman_(game))
 
 <div align="center"><img src="/assets/images/phils_hangman_cover.png" alt="hangman welcome screen"></div>
 
-Click on the deployed link here [Phils Hangman](https://phils-hangman.herokuapp.com/).
+e [Click here for the final deployed project](https://phils-hangman.herokuapp.com/).
 
-## Table of Contents
 
-1.  [How to play](#how-to-play)
-2.  <details open>
-        <summary><a href="#features">Existing Features</a></summary>
+## **Table of Contents**
+* [**Phils Hangman**](#Phils Hangman)
+  * [**Overview**](#overview)
+  * [**Table of Contents**](#table-of-contents)    
+* [**Planning Phase:**](#planning-phase)
+  * [***User Stories:***](#user-stories)
 
-        - [Welcome Screen](#welcome-screen)
-        - [Instructions](#instructions)
-        - [Play](#play)
-        - [Enter Username](#enter-username)
-        - [Random Board Generator](#random-board-generator)
-        - [Score Count](#score-count)
-        - [Number of Turns](#number-of-turns)
-        - [Play Again](#play-again)
-        - [End Game](#endgame)
-        </details></li>
-        </ul>
+# **Planning Phase:**
+## ***User Stories:***
+As a user, I want to be able to:
+* From the offset see clearly what the game is.
+* Bring back memeories of playing this game in the school days
+* Play an computirized version of hangman by myself.
 
-    </details>
+## ***Site Aims:***
+The site aims to:
+1. Make it clear what the game is without the need for further explanation from external sources.
+1. Communicate a clear and appropriate response to all user inputs.
+1. Continue in a loop without ever crashing due to an error caused by the user's input.
+1. Allow the user to have an enjoyable experience playing hangman by themselves.
+  
+## ***How Will This Be Achieved:***
+To achieve the above, the site will:
+1. Provide a welcome screen with the game name in ascii art.
+1. Ensure that all user input provides an appropriate response.
+1. Any time the user input is not as expected by the game, the app will show a message to inform the user that their entry was invalid and guide them on how to input as expected.
+1. Executing all of the above in a way that successfully replicates the original game of hangman.
 
-3.  <summary><a href="#future-features">Future Features</a></summary>
-
-4.  <summary><a href="#design">Design</a></summary>
-
-5.  <summary><a href="#data-model">Data Model</a></summary>
-
-6.  <summary><a href="#technologies">Technologies</a></summary>
-
-7.  <details open>
-    <summary><a href="#testing">Testing</a></summary>
-
-    - [Validation](#validation)
-    - [General Testing](#general-testing)
-      </details>
-
-8.  <details open>
-    <summary><a href="#deployment">Deployment</a></summary>
-
-    - [Heroku](#heroku)
-      </details>
-
-9.  <details open>
-    <summary><a href="#credits">Credits and Contact</a></summary>
-
-    - [Credit](#credit)
-      </details>
-
----
-
-## How to Play
-
-A single player game against the computer.
-
-Gameplay;
-
--   Enter your username and the game will begin.
 
 ## Features
 
 ### Welcome Screen
+The welcome section is the screen the end user is presented with on page load. It provides the user with an introduction, along with an input to enter the users name. This is validated before continuing.
 
--   Enter 'P' to play game,
--   Enter 'I' for instructions
-<div><img src= alt=""></div>
+<div align="center"><img src="/assets/images/welcome_screen_readme.png" alt="hangman welcome screen"></div>
 
 ### Instructions
 
