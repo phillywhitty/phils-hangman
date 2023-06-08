@@ -41,6 +41,7 @@ def game_intro():
     print('What is your name?\n \n')
     name = input('ENTER YOUR NAME:')
     print(f"\n Welcome, {name} \n")
+    clear_screen()
 
 
 def start_game():
