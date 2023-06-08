@@ -1,10 +1,10 @@
-# Battleships Game
+# Phils Hangman
 
 Describe the game here [Wikipedia](<https://en.wikipedia.org/wiki/Battleship_(game)>)
 
-<div align="center"><img src="/assets/images/battleships-python-pp3.jpg" alt="battleships welcome screen"></div>
+<div align="center"><img src="/assets/images/phils_hangman_cover.png" alt="hangman welcome screen"></div>
 
-Click on the deployed link here [Battleships](https:).
+Click on the deployed link here [Phils Hangman](https:).
 
 ## Table of Contents
 
